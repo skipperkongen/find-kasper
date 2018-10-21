@@ -112,52 +112,30 @@ class LabelTool():
 ##        self.setImage()
 ##        self.loadDir()
 
-    def loadDir(self, dbg = False):
-        if not dbg:
-            s = self.entry.get()
-            self.parent.focus()
-            self.category = int(s)
-        else:
-            s = r'D:\workspace\python\labelGUI'
-##        if not os.path.isdir(s):
-##            tkMessageBox.showerror("Error!", message = "The specified dir doesn't exist!")
-##            return
+    def loadDir(self):
+        print('Loading')
+        self.parent.focus()
         # get image list
-        self.imageDir = os.path.join(r'./Images', '%03d' %(self.category))
+        self.imageDir = r'./images'
         self.imageList = glob.glob(os.path.join(self.imageDir, '*.JPEG'))
         if len(self.imageList) == 0:
-            print 'No .JPEG images found in the specified dir!'
+            print ('No .JPEG images found in the specified dir!')
             return
+        else:
+            print ('Found {} images'.format(len(self.imageList)))
 
         # default to the 1st image in the collection
         self.cur = 1
         self.total = len(self.imageList)
 
          # set up output dir
-        self.outDir = os.path.join(r'./Labels', '%03d' %(self.category))
+        self.outDir = r'./labels'
         if not os.path.exists(self.outDir):
             os.mkdir(self.outDir)
 
         # load example bboxes
-        self.egDir = os.path.join(r'./Examples', '%03d' %(self.category))
-        if not os.path.exists(self.egDir):
-            return
-        filelist = glob.glob(os.path.join(self.egDir, '*.JPEG'))
-        self.tmp = []
-        self.egList = []
-        random.shuffle(filelist)
-        for (i, f) in enumerate(filelist):
-            if i == 3:
-                break
-            im = Image.open(f)
-            r = min(SIZE[0] / im.size[0], SIZE[1] / im.size[1])
-            new_size = int(r * im.size[0]), int(r * im.size[1])
-            self.tmp.append(im.resize(new_size, Image.ANTIALIAS))
-            self.egList.append(ImageTk.PhotoImage(self.tmp[-1]))
-            self.egLabels[i].config(image = self.egList[-1], width = SIZE[0], height = SIZE[1])
-
         self.loadImage()
-        print '%d images loaded from %s' %(self.total, s)
+        print ('{} images loaded'.format(self.total))
 
     def loadImage(self):
         # load image
@@ -174,6 +152,7 @@ class LabelTool():
         labelname = self.imagename + '.txt'
         self.labelfilename = os.path.join(self.outDir, labelname)
         bbox_cnt = 0
+        """
         if os.path.exists(self.labelfilename):
             with open(self.labelfilename) as f:
                 for (i, line) in enumerate(f):
@@ -190,13 +169,18 @@ class LabelTool():
                     self.bboxIdList.append(tmpId)
                     self.listbox.insert(END, '(%d, %d) -> (%d, %d)' %(tmp[0], tmp[1], tmp[2], tmp[3]))
                     self.listbox.itemconfig(len(self.bboxIdList) - 1, fg = COLORS[(len(self.bboxIdList) - 1) % len(COLORS)])
+        """
 
     def saveImage(self):
         with open(self.labelfilename, 'w') as f:
-            f.write('%d\n' %len(self.bboxList))
-            for bbox in self.bboxList:
-                f.write(' '.join(map(str, bbox)) + '\n')
-        print 'Image No. %d saved' %(self.cur)
+            for x1, y1, x2, y2 in self.bboxList:
+                # rewrite bbox to darknet
+                x = 0.5 * (x1 + x2) / self.img.size[0]
+                y = 0.5 * (y1 + y2) / self.img.size[1]
+                w = abs(x2 - x1) / self.img.size[0]
+                h = abs(y2 - y1) / self.img.size[1]
+                f.write('0 {} {} {} {}\n'.format(x, y, w, h))
+        print ('Image No. %d saved' %(self.cur))
 
 
     def mouseClick(self, event):

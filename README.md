@@ -19,7 +19,7 @@ Først skal vi bruge noget træningsdata. Følg tjeklisten herunder.
 
 - Tag 300 billeder af en bestemt ting, som du vil kunne genkende. Billederne skal være i JPEG format og gemmes i mappen 'images_raw'.
 - Kør `python shrink_images.py`, hvilket gør billerne mindre og kopierer dem til mappen 'images'.
-- Kør `python bbox_label_too.py` hvilket starter en GUI hvor du kan markere en kasse omkring det objekt du har valgt på alle billederne. Sørg for at være nøjagtigt når du markerer hvor objektet er og gør det ligesom på billedet ovenfor.
+- Kør `python bbox_label_too.py` hvilket starter en GUI hvor du kan markere en kasse omkring det objekt du har valgt på alle billederne. Sørg for at være nøjagtigt når du markerer hvor objektet er og gør det ligesom på billedet ovenfor. Obs: virker kun med Python 2.
 - Kør `python configure.py` for at oprette konfigurationsfiler i det format som [darknet](https://pjreddie.com/darknet/yolo/) forventer.
 
 Installer darknet:
