@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>IMG_3353.JPEG</filename>
+	<path>/Users/kostas/Documents/code/find-kasper/images/IMG_3353.JPEG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>300</width>
+		<height>400</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>kasper</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>77</xmin>
+			<ymin>223</ymin>
+			<xmax>239</xmax>
+			<ymax>380</ymax>
+		</bndbox>
+	</object>
+</annotation>

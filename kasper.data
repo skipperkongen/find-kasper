@@ -1,5 +1,0 @@
-classes=1
-train=train.txt
-valid=test.txt
-names=kasper.names
-backup=backup
