@@ -14,25 +14,18 @@ Næste skridt er, at markere hvor Kasper er placeret på hvert billede. For at t
 
 ![Labeling](labeling.gif)
 
-I programmet vælger du om labels skal gemmes i enten PascalVOC format eller YOLO format. Vælg PascalVOC hvis du vil bruge Google's TensorFlow senere og YOLO hvis du vil bruge Joseph Redmons YOLO model.
+I programmet vælger du om labels skal gemmes i enten PascalVOC format eller YOLO format. Vælg PascalVOC hvis du vil bruge Google's TensorFlow senere og YOLO hvis du vil bruge Joseph Redmons YOLO model. I denne tutorial har jeg valgt at bruge Tensorflow.
 
-## Træning af algoritme
+## Hvis du vil bruge dine egne billeder
 
-Først skal vi bruge noget træningsdata. Følg tjeklisten herunder.
+Følg tjeklisten herunder.
 
 - Tag 300 billeder af en bestemt ting, som du vil kunne genkende. Billederne skal være i JPEG format og gemmes i mappen 'images_raw'.
-- Kør `python shrink_images.py`, hvilket gør billerne mindre og kopierer dem til mappen 'images'.
-- Kør `python bbox_label_too.py` hvilket starter en GUI hvor du kan markere en kasse omkring det objekt du har valgt på alle billederne. Sørg for at være nøjagtigt når du markerer hvor objektet er og gør det ligesom på billedet ovenfor. Obs: virker kun med Python 2.
-
-Herefter kan vi træne vores algoritme til at finde Kasper. Vi kan benytte en af nedenstående metoder.
+- Kør `python shrink_images.py`, hvilket gør billederne mindre og kopierer dem til mappen 'images'.
 
 ### TensorFlow Object Detection API
 
-Vi kan benytte TensorFlows object detection API til det. Denne fremgangsmåde er baseret på følgende lektioner:
-- [Installing TensorFlow for Object Detection](https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/)
-- [Custom objects tracking with TensorFlow](https://pythonprogramming.net/custom-objects-tracking-tensorflow-object-detection-api-tutorial/?completed=/video-tensorflow-object-detection-api-tutorial/).
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K_mFnvzyLvc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-
-## Darknet Yolo v3
+Vi kan benytte TensorFlows object detection API til det. Denne fremgangsmåde er baseret på følgende walk-throughs:
+- [Installer tensorflow](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
+- [Forbered data](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/preparing_inputs.md)
+- [Tensorflow Object Detection guide](https://github.com/tensorflow/models/tree/master/research/object_detection)
