@@ -16,7 +16,7 @@ Næste skridt er, at markere hvor Kasper er placeret på hvert billede. For at t
 
 I programmet vælger du om labels skal gemmes i enten PascalVOC format eller YOLO format. Vælg PascalVOC hvis du vil bruge Google's TensorFlow senere og YOLO hvis du vil bruge Joseph Redmons YOLO model. I denne tutorial går vi vores egne veje, men vi kan fint bruge det simple YOLO format.
 
-Det er nemmeste at træne neurale netværk på et fast input data, f.eks. billeder i størrelsen 224x224 eller 400x600. Da vores billeder af Kasper er i lidt forskellige formatter, vil det være nyttigt hvis vi først skærer dem til, så de har samme dimensioner. Det er også en fordel hvis vi gør billederne mindre, for så er der færre pixels som netværket skal tage stilling til. Lige nu er billederne i både højt og bredt format, og det skal vi ændre på før vi kan fortsætte.
+Det er nemmeste at træne neurale netværk på et fast input data, f.eks. billeder i størrelsen 224x224 eller 400x600. Da vores billeder af Kasper er i lidt forskellige formatter, vil det være nyttigt hvis vi først [skærer dem til](https://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.Image.crop), så de har samme dimensioner. Det er også en fordel hvis vi gør billederne mindre, for så er der færre pixels som netværket skal tage stilling til. Lige nu er billederne i både højt og bredt format, og det skal vi ændre på før vi kan fortsætte.
 
 Fortsættelse følger...
 
