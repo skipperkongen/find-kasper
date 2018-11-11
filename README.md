@@ -10,7 +10,7 @@ Du kan naturligvis skifte hundebamsen ud med hvad du vil, men lad os antage at d
 
 Første skridt er, at indsamle en masse billeder af Kasper. Vi skal bruge cirka 300 billeder af Kasper i forskellige situationer. I mappen `images` finder du en masse billeder af Kasper, som min søn har taget.
 
-Næste skridt er, at markere hvor Kasper er placeret på hvert billede. For at træne en algoritme skal vi bruge en label for hvert sted hvor Kasper findes på et billede. Dine labels er de eksempler som algoritmen skal lære fra, så sørg for at være præcis når du angiver hvor Kasper er i billedet. Jeg anbefaler, at du bruger programmet [https://github.com/tzutalin/labelImg](https://github.com/tzutalin/labelImg) til at oprette labels.
+Næste skridt er, at markere hvor Kasper er placeret på hvert billede. For at træne en algoritme skal vi bruge en markering (labels) for hvert sted hvor Kasper optræder i et billede. Vi bliver nødt oprette markeringerne manuelt. Algoritmen skal lære at finde Kasper ved at lære fra dine markeringer, så sørg for at være præcis når du angiver dem. Jeg anbefaler, at du bruger programmet [https://github.com/tzutalin/labelImg](https://github.com/tzutalin/labelImg) til at oprette labels.
 
 ![Labeling](labeling.gif)
 
@@ -29,3 +29,6 @@ Vi kan benytte TensorFlows object detection API til det. Denne fremgangsmåde er
 - [Installer tensorflow](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 - [Forbered data](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/preparing_inputs.md)
 - [Tensorflow Object Detection guide](https://github.com/tensorflow/models/tree/master/research/object_detection)
+
+Andre gode resourcer:
+- [Review of Deep Learning Algorithms for Object Detection](https://medium.com/comet-app/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852)
