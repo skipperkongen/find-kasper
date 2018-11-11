@@ -14,7 +14,7 @@ Næste skridt er, at markere hvor Kasper er placeret på hvert billede. For at t
 
 ![Labeling](labeling.gif)
 
-I programmet vælger du om labels skal gemmes i enten PascalVOC format eller YOLO format. Vælg PascalVOC hvis du vil bruge Google's TensorFlow senere og YOLO hvis du vil bruge Joseph Redmons YOLO model. I denne tutorial har jeg valgt at bruge Tensorflow.
+I programmet vælger du om labels skal gemmes i enten PascalVOC format eller YOLO format. Vælg PascalVOC hvis du vil bruge Google's TensorFlow senere og YOLO hvis du vil bruge Joseph Redmons YOLO model. I denne tutorial går vi vores egne veje, men vi kan fint bruge det simple YOLO format.
 
 ## Hvis du vil bruge dine egne billeder
 
